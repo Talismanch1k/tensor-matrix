@@ -1,13 +1,18 @@
 // render.js - Simplified rendering engine
 /* global THREE, Storage */
 
-// COLOSR CONSTANTS
+// COLOR CONSTANTS
 const COLOR_ACTIVE = 0x00c853;         
 const COLOR_ACTIVE_EDGE = 0x006400;    
 const COLOR_INACTIVE = 0xe0e0e0;
 const COLOR_INACTIVE_EDGE = 0xcccccc;
 const COLOR_CONFLICT = 0xb71c1c;       
 const COLOR_CONFLICT_EDGE = 0x990000;  
+
+// Miniature colors (hex strings for canvas)
+const MINI_COLOR_ACTIVE = '#00c853';
+const MINI_COLOR_CONFLICT = '#b71c1c';
+const MINI_COLOR_INACTIVE = '#e0e0e0';  
 
 class RenderEngine {
   constructor(viewEl, layersEl) {
@@ -299,9 +304,9 @@ class RenderEngine {
 
       for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-          ctx.fillStyle = (Storage.showConflicts && conflicts[i][j][k]) ? '#ff4444' 
-                        : tensor[i][j][k] ? '#6c63ff' 
-                        : '#e0e0e0';
+          ctx.fillStyle = (Storage.showConflicts && conflicts[i][j][k]) ? MINI_COLOR_CONFLICT 
+                        : tensor[i][j][k] ? MINI_COLOR_ACTIVE 
+                        : MINI_COLOR_INACTIVE;
           ctx.fillRect(i * cell, j * cell, cell - 1, cell - 1);
         }
       }
