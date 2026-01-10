@@ -81,7 +81,7 @@
       </div>
 
       <div class="section">
-        <button id="showInstructions">📖 Инструкция</button>
+        <button id="showInstructions">📖 Guide</button>
       </div>
     </div>
 
@@ -144,8 +144,40 @@
           </section>
 
           <section>
-            <h3>Пример использования</h3>
-            <p></p>
+            <h3>Пример использования на верхне-треугольных матрицах</h3>
+            <div class="usage-examples">
+              <div class="example-step">
+                <div class="example-image">
+                  <img src="index_files/examples/step1.png" alt="Шаг 1: Выбор размера">
+                </div>
+                <div class="example-header">
+                  <div class="example-number">1</div>
+                  <p class="example-caption">Выберите обычное умножение матриц (Naive)</p>
+                </div>
+                <p class="example-description">Загрузите стандартный пресет для матриц 2×2 или 3×3</p>
+              </div>
+              <div class="example-step">
+                <div class="example-image">
+                  <img src="index_files/examples/step2.png" alt="Шаг 2: Загрузка пресета">
+                </div>
+                <div class="example-header">
+                  <div class="example-number">2</div>
+                  <p class="example-caption">Измените компоненты (для верхне-треугольных матриц a₃, b₃ = 0)</p>
+                </div>
+                <p class="example-description">Адаптируйте декомпозицию под структуру ваших матриц</p>
+              </div>
+              <div class="example-step">
+                <div class="example-image">
+                  <img src="index_files/examples/step3.png" alt="Шаг 3: Редактирование">
+                </div>
+                <div class="example-header">
+                  <div class="example-number">3</div>
+                  <p class="example-caption">Reduce!</p>
+                </div>
+                <p class="example-description">После <b>Reduce</b> получим схему для умножения матриц всего за 4 умножения, вместо обычных 8 умножений.</p>
+              </div>
+              
+            </div>
           </section>
         </div>
       </div>
