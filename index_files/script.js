@@ -348,6 +348,40 @@ function setupMobileMenu() {
   close.onclick = closeMenu;
 }
 
+// Instructions modal setup
+function setupInstructions() {
+  const btn = document.getElementById('showInstructions');
+  const modal = document.getElementById('instructionsModal');
+  const closeBtn = modal.querySelector('.modal-close');
+
+  const openModal = () => {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  btn.onclick = openModal;
+  closeBtn.onclick = closeModal;
+  
+  // Close when clicking outside the modal content
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  };
+  
+  // Close with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   // Create engine
@@ -414,6 +448,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile menu
   setupMobileMenu();
+
+  // Instructions modal
+  setupInstructions();
 
   // Window resize
   window.addEventListener('resize', () => engine.handleResize());
